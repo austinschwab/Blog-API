@@ -5,7 +5,7 @@ schema:
               Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjc5MTM3Zi05ZDcyLTRhMjgtYTk4YS1lNjkyZDg4NDAxZDkiLCJpYXQiOjE2MzA3NjgyMzh9.dCymAEU5Di4fojJlCHSBGtv3je2shOqXIFSFjN9y4bA'
 documents: null
 generates:
-    src/generated/graphql.ts:
+    src/generated/types.ts:
         plugins:
             - 'typescript'
             - 'typescript-resolvers'

@@ -1,4 +1,4 @@
-import { Resolvers, User } from '../../generated/graphql';
+import { Resolvers, User } from '../../generated/types';
 import { compare, hash } from 'bcryptjs';
 import { AuthenticationError } from 'apollo-server';
 import { sign } from 'jsonwebtoken';

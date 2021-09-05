@@ -4,13 +4,15 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "prismix": "npx prismix && prisma format",
+        "prisma:reset": "npx prisma migrate reset",
+        "prisma:migrate": "npx prisma migrate dev --name init",
+        "prisma:format": "npx prisma format",
+        "prisma:seed": "npx prisma db seed --preview-feature",
+        "prismix": "npx prismix && npm run prisma:format",
         "generate": "graphql-codegen --config codegen.yml",
-        "migrate": "npx prisma migrate dev --name init",
         "compile": "tsc",
-        "dev": "npm run prismix && ts-node-dev src/index.ts",
-        "start": "node ./build/index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "npm run prismix && ts-node-dev src/index.ts",
+        "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\""
     },
     "repository": {
         "type": "git",
@@ -29,22 +31,23 @@
         "@types/bcryptjs": "^2.4.2",
         "@types/lodash": "^4.14.172",
         "@types/node": "^16.7.10",
-        "lodash": "^4.17.21",
         "prettier": "^2.3.2",
         "prisma": "^2.30.3",
+        "ts-node": "^10.2.1",
         "ts-node-dev": "^1.1.8",
         "typescript": "^4.4.2"
     },
     "dependencies": {
-        "@graphql-codegen/cli": "^2.1.1",
+        "@graphql-tools/schema": "^8.2.0",
         "@prisma/client": "^2.30.3",
         "apollo-server": "^3.3.0",
         "bcryptjs": "^2.4.3",
         "graphql": "^15.5.2",
         "graphql-middleware": "^6.1.6",
         "graphql-shield": "^7.5.0",
-        "graphql-tools": "^8.2.0",
+        "prisma": "^2.30.3",
         "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.21",
         "prismix": "^1.0.18"
     }
 }

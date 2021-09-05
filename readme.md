@@ -1,10 +1,31 @@
-https://medium.com/geekculture/how-to-setup-full-stack-apollo-gql-codegen-prisma-2-0-typescript-react-part-1-the-backend-e9eae9518dc9
+# Graphql API
 
-https://blog.logrocket.com/a-complete-guide-to-permissions-in-a-graphql-api/
+A small project to learn Prisma and GraphQL.
 
+## 📦 Packages used
+- [Prisma](https://www.prisma.io/)
+- [Apollo server](https://www.apollographql.com/docs/apollo-server/)
+- [Prismix](https://www.npmjs.com/package/prismix)
+- [GraphQL-codegen](https://www.graphql-code-generator.com/)
 
+## 🎉 Get started
 
-### Generate migration
+1. Install npm packages
 ```bash
-npx prisma migrate dev --name init
+npm install
+```
+
+2. Create your database and run migrations
+```bash
+npm run prismix && npm run prisma:migrate
+```
+
+3. Generate prisma client
+```bash
+npx prisma generate
+```
+
+4. Start the app
+```bash
+npm run start
 ```
