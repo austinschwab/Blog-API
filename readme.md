@@ -1,6 +1,6 @@
 # Graphql API
 
-A small project to learn Prisma and GraphQL.
+A small API to learn Prisma and GraphQL.
 
 ## 📦 Packages used
 - [Prisma](https://www.prisma.io/)
@@ -10,22 +10,27 @@ A small project to learn Prisma and GraphQL.
 
 ## 🎉 Get started
 
-1. Install npm packages
+1. Install dependencies
 ```bash
 npm install
 ```
 
-2. Create your database and run migrations
-```bash
-npm run prismix && npm run prisma:migrate
+1. Add your database url in `.env`
+```env
+DATABASE_URL="postgres://user:password@localhost:5432/db"
 ```
 
-3. Generate prisma client
+3. Run migrations
 ```bash
-npx prisma generate
+npm run prisma:migrate
 ```
 
-4. Start the app
+4. Seed your database - **Optionnal** 
+```bash
+npm run prisma:seed
+```
+
+5. Start the app
 ```bash
 npm run start
 ```
