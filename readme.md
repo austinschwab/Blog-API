@@ -15,7 +15,7 @@ A small API to learn Prisma and GraphQL.
 npm install
 ```
 
-1. Add your database url in `.env`
+2. Add your database url in `.env`
 ```env
 DATABASE_URL="postgres://user:password@localhost:5432/db"
 ```
