@@ -1,4 +1,4 @@
-import * as dotenv from "dotenv"
+import * as dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server';
 import { applyMiddleware } from 'graphql-middleware';
 import { permissions } from '@config/permissions';
@@ -10,7 +10,7 @@ import * as User from '@modules/user';
 import * as Comment from '@modules/comment';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
-dotenv.config()
+dotenv.config();
 
 const typeDefs = [Post.typeDefs, User.typeDefs, Comment.typeDefs];
 const resolvers = merge(Post.resolvers, User.resolvers, Comment.resolvers);
@@ -25,7 +25,7 @@ const server = new ApolloServer({
 
 const port = 4000;
 server
-    .listen(port)
+    .listen(process.env.PORT || 4000)
     .then(({ url }) =>
         console.log(`🚀 GraphQL server is running at ${url}graphql`)
     )
