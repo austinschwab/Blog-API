@@ -1,10 +1,12 @@
-import { Resolvers, User } from '../../generated/types';
+// import { Resolvers, User } from '@generated/types';
+import { User } from '@generated/types';
 import { compare, hash } from 'bcryptjs';
 import { AuthenticationError } from 'apollo-server';
 import { sign } from 'jsonwebtoken';
-import { JWT_SECRET } from '../../constants';
+import { JWT_SECRET } from '@constants';
+import { IResolvers } from 'graphql-middleware/dist/types';
 
-export const resolvers: Resolvers = {
+export const resolvers: IResolvers = {
     Query: {
         me: async (_, args, context) => {
             return await context.prisma.user.findUnique({

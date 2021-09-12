@@ -1,6 +1,8 @@
-import { Post, Resolvers } from '../../generated/types';
+// import { Post, Resolvers } from '@generated/types';
+import { Post } from '@generated/types';
+import { IResolvers } from 'graphql-middleware/dist/types';
 
-export const resolvers: Resolvers = {
+export const resolvers: IResolvers = {
     Query: {
         getAllPosts: async (_, args, context) => {
             return await context.prisma.post.findMany({

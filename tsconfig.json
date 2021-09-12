@@ -1,9 +1,16 @@
 {
     "compilerOptions": {
-      "sourceMap": true,
-      "outDir": "dist",
-      "strict": true,
-      "lib": ["esnext"],
-      "esModuleInterop": true
+        "sourceMap": true,
+        "outDir": "dist",
+        "strict": true,
+        "lib": ["esnext"],
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "@config/*": ["./src/config/*"],
+            "@modules/*": ["./src/modules/*"],
+            "@generated/*": ["./src/generated/*"],
+            "@constants": ["./src/constants.ts"]
+        }
     }
 }

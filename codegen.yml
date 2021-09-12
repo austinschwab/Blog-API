@@ -8,5 +8,5 @@ generates:
             - 'typescript'
             - 'typescript-resolvers'
         config:
-            contextType: ../context#Context
-            useIndexSignature: true
+            contextType: '../config/context#Context'
+            useIndexSignature: false

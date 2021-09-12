@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { verify } from 'jsonwebtoken';
-import { JWT_SECRET } from '../constants';
+import { JWT_SECRET } from '@constants';
 
 export interface Context {
     userId: string | null;
