@@ -3,21 +3,30 @@ import { hash } from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
-const Posts = [
+const postContent =
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+
+const posts = [
     {
         title: 'Article n°1',
-        content: '',
-        isPublished: false,
+        slug: 'article-1',
+        content: postContent,
+        published: false,
+        publishedAt: null
     },
     {
         title: 'Article n°2',
-        content: '',
-        isPublished: false,
+        slug: 'article-2',
+        content: postContent,
+        published: false,
+        publishedAt: null
     },
     {
         title: 'Article n°3',
-        content: '',
-        isPublished: false,
+        slug: 'article-3',
+        content: postContent,
+        published: true,
+        publishedAt: new Date().toISOString(),
     },
 ];
 
@@ -32,7 +41,7 @@ async function main() {
         },
     });
 
-    Posts.forEach(async (element) => {
+    posts.forEach(async (element) => {
         await prisma.post.create({
             data: { ...element, userId: user.id },
         });

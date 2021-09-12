@@ -17,7 +17,9 @@ function getUserId(token: string): string | null {
     }
 }
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+    log: ['query', 'info', 'warn', 'error'],
+});
 
 export function createContext({ req }: any): Context {
     const userId = getUserId(req.headers.authorization || '');

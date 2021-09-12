@@ -1,4 +1,4 @@
-import { Resolvers } from '../../generated/types';
+import { Post, Resolvers } from '../../generated/types';
 
 export const resolvers: Resolvers = {
     Query: {
@@ -6,6 +6,7 @@ export const resolvers: Resolvers = {
             return await context.prisma.post.findMany({
                 include: {
                     user: true,
+                    Comment: true,
                 },
             });
         },
@@ -16,37 +17,69 @@ export const resolvers: Resolvers = {
                 },
                 include: {
                     user: true,
+                    Comment: true,
                 },
             });
         },
     },
     Mutation: {
         createPost: async (_, args, context) => {
+            const data: Partial<Post> = {
+                ...args,
+                userId: context.userId,
+                published: args?.published ?? false,
+            };
+
+            if (args?.published) {
+                data.publishedAt = data.published
+                    ? new Date().toISOString()
+                    : null;
+            }
+
             return await context.prisma.post.create({
-                data: {
-                    title: args.title,
-                    content: args.content,
-                    isPublished: args.isPublished ?? false,
-                    userId: context.userId,
+                data,
+                include: {
+                    user: true,
+                    Comment: true,
+                },
+            });
+        },
+        updatePost: async (_, args, context) => {
+            const post: Post[] = await context.prisma.post.findMany({
+                where: {
+                    id: args.id,
+                    user: {
+                        id: context.userId,
+                    },
                 },
                 include: {
                     user: true,
                 },
             });
-        },
-        updatePost: async (_, args, context) => {
+
+            if (post.length === 0) {
+                throw new Error(
+                    "You doesn't have permission to update this post"
+                );
+            }
+
+            const data = args as Partial<Post>;
+
+            if (args?.published) {
+                data.published = args.published;
+                data.publishedAt = args.published
+                    ? new Date().toISOString()
+                    : null;
+            }
+
             return await context.prisma.post.update({
                 where: {
                     id: args.id,
                 },
-                data: {
-                    title: args.title,
-                    content: args.content,
-                    isPublished: args.isPublished,
-                    userId: context.userId,
-                },
+                data,
                 include: {
                     user: true,
+                    Comment: true,
                 },
             });
         },

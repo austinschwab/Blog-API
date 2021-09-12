@@ -4,11 +4,15 @@ export const typeDefs = gql`
     type Post {
         id: String!
         title: String!
+        slug: String!
         content: String!
-        isPublished: Boolean!
-        timeStamp: String!
-        user: User!
+        published: Boolean!
+        createdAt: String!
+        updatedAt: String!
+        publishedAt: String
+        user: User
         userId: String!
+        Comment: [Comment!]
     }
 
     type Query {
@@ -19,14 +23,16 @@ export const typeDefs = gql`
     type Mutation {
         createPost(
             title: String!
+            slug: String!
             content: String!
-            isPublished: Boolean
+            published: Boolean
         ): Post!
         updatePost(
             id: String!
             title: String
+            slug: String
             content: String
-            isPublished: Boolean
+            published: Boolean
         ): Post!
     }
 `;

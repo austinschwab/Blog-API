@@ -11,6 +11,10 @@ export const resolvers: Resolvers = {
                 where: {
                     id: context.userId,
                 },
+                include: {
+                    Post: true,
+                    Comment: true,
+                },
             });
         },
     },

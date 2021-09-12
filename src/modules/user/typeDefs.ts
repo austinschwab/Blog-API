@@ -5,7 +5,10 @@ export const typeDefs = gql`
         id: String!
         name: String!
         email: String!
-        post: [Post!]
+        Post: [Post!]
+        Comment: [Comment!]
+        createdAt: String!
+        updatedAt: String!
     }
 
     type AuthenticatedUser {

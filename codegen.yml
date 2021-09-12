@@ -1,8 +1,6 @@
 overwrite: true
-schema:
-    - 'http://localhost:4000':
-          headers:
-              Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZjc5MTM3Zi05ZDcyLTRhMjgtYTk4YS1lNjkyZDg4NDAxZDkiLCJpYXQiOjE2MzA3NjgyMzh9.dCymAEU5Di4fojJlCHSBGtv3je2shOqXIFSFjN9y4bA'
+watch: true
+schema: src/**/typeDefs.ts
 documents: null
 generates:
     src/generated/types.ts:

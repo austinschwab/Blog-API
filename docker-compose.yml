@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+    database:
+        container_name: blog_api_database
+        image: postgres
+        environment:
+            POSTGRES_DB: db
+            POSTGRES_PASSWORD: password
+            POSTGRES_USER: user
+        ports:
+            - 5432:5432
+    pgadmin:
+        container_name: blog_api_pgadmin
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: root
+        ports:
+            - '8080:80'
+        depends_on:
+            - database
