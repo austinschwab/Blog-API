@@ -95,7 +95,7 @@ export type Post = {
   publishedAt?: Maybe<Scalars['String']>;
   user?: Maybe<User>;
   userId: Scalars['String'];
-  Comment?: Maybe<Array<Comment>>;
+  comment?: Maybe<Array<Comment>>;
 };
 
 export type Query = {
@@ -262,7 +262,7 @@ export type PostResolvers<ContextType = Context, ParentType extends ResolversPar
   publishedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   userId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  Comment?: Resolver<Maybe<Array<ResolversTypes['Comment']>>, ParentType, ContextType>;
+  comment?: Resolver<Maybe<Array<ResolversTypes['Comment']>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

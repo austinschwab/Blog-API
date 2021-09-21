@@ -12,7 +12,7 @@ export const typeDefs = gql`
         publishedAt: String
         user: User
         userId: String!
-        Comment: [Comment!]
+        comment: [Comment!]
     }
 
     type Query {

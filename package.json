@@ -10,7 +10,7 @@
         "prisma:seed": "npx prisma db seed --preview-feature",
         "prismix": "npx prismix && npm run prisma:format",
         "generate": "graphql-codegen --config codegen.yml",
-        "dev": "concurrently \"ts-node-dev src/index.ts\" \"npm run generate\"",
+        "dev": "concurrently \"ts-node-dev -r tsconfig-paths/register src/index.ts\" \"npm run generate\"",
         "start": "ts-node -r tsconfig-paths/register src/index.ts",
         "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\""
     },

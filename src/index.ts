@@ -1,8 +1,8 @@
 import * as dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server';
 import { applyMiddleware } from 'graphql-middleware';
-import { permissions } from '@config/permissions';
 import { createContext } from '@config/context';
+import { permissions } from '@config/permissions';
 import { merge } from 'lodash';
 
 import * as Post from '@modules/post';

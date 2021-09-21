@@ -8,7 +8,7 @@ export const resolvers: IResolvers = {
             return await context.prisma.post.findMany({
                 include: {
                     user: true,
-                    Comment: true,
+                    comment: true,
                 },
             });
         },
@@ -19,7 +19,11 @@ export const resolvers: IResolvers = {
                 },
                 include: {
                     user: true,
-                    Comment: true,
+                    comment: {
+                        include: {
+                            user: true,
+                        },
+                    },
                 },
             });
         },
@@ -42,7 +46,7 @@ export const resolvers: IResolvers = {
                 data,
                 include: {
                     user: true,
-                    Comment: true,
+                    comment: true,
                 },
             });
         },
@@ -81,7 +85,7 @@ export const resolvers: IResolvers = {
                 data,
                 include: {
                     user: true,
-                    Comment: true,
+                    comment: true,
                 },
             });
         },
