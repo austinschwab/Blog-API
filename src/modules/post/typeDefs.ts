@@ -16,7 +16,7 @@ export const typeDefs = gql`
     }
 
     type Query {
-        getAllPosts: [Post!]
+        getAllPosts(published: Boolean): [Post!]
         getPostById(id: String!): Post!
     }
 

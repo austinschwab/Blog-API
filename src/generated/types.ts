@@ -108,6 +108,11 @@ export type Query = {
 };
 
 
+export type QueryGetAllPostsArgs = {
+  published?: Maybe<Scalars['Boolean']>;
+};
+
+
 export type QueryGetCommentsByIdArgs = {
   id: Scalars['String'];
 };
@@ -267,7 +272,7 @@ export type PostResolvers<ContextType = Context, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  getAllPosts?: Resolver<Maybe<Array<ResolversTypes['Post']>>, ParentType, ContextType>;
+  getAllPosts?: Resolver<Maybe<Array<ResolversTypes['Post']>>, ParentType, ContextType, RequireFields<QueryGetAllPostsArgs, never>>;
   getCommentsById?: Resolver<ResolversTypes['Comment'], ParentType, ContextType, RequireFields<QueryGetCommentsByIdArgs, 'id'>>;
   getCommentsByPost?: Resolver<Array<Maybe<ResolversTypes['Comment']>>, ParentType, ContextType, RequireFields<QueryGetCommentsByPostArgs, 'id'>>;
   getPostById?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<QueryGetPostByIdArgs, 'id'>>;

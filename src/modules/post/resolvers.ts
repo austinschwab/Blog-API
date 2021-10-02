@@ -5,7 +5,14 @@ import { IResolvers } from 'graphql-middleware/dist/types';
 export const resolvers: IResolvers = {
     Query: {
         getAllPosts: async (_, args, context) => {
+            const where: { published?: Boolean } = {};
+
+            if ('published' in args) {
+                where.published = args.published;
+            }
+
             return await context.prisma.post.findMany({
+                where: where,
                 include: {
                     user: true,
                     comment: true,
