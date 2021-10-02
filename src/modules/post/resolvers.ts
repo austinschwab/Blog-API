@@ -13,6 +13,7 @@ export const resolvers: IResolvers = {
 
             return await context.prisma.post.findMany({
                 where: where,
+                orderBy: { publishedAt: 'desc' },
                 include: {
                     user: true,
                     comment: true,
